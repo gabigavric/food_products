@@ -28,3 +28,12 @@ describe '#most_recent' do
      expect(most_recent_products.length).to eq 3
    end
 end
+
+describe '#local' do
+   it "should return products from the USA" do
+     Product.create(name: "name", cost: 1, origin: "origin")
+     product = Product.create(name: "Knitted Hat", cost: 5, origin: "USA")
+     local_product = Product.local
+     expect(local_product[0]).to eq product
+  end
+end
