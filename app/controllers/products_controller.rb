@@ -16,7 +16,7 @@ def create
   @product = Product.new(product_params)
   if @product.save
     flash[:notice] = "Product successfully added!"
-    redirect_to products_path
+    redirect_to products_path(@product)
   else
     render :new
   end
