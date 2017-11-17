@@ -1,0 +1,8 @@
+<% content_for(:title, "Gabi's | Product") %>
+
+<h1>Product: <%= @product.name %></h1>
+<h1>Cost: <%= @product.cost %></h1>
+<h1>Place of Origin: <%= @product.origin %></h1>
+
+
+<p><%= link_to "Edit Product", edit_product_path(@product) %></p>

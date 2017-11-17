@@ -26,4 +26,3 @@ private
   def product_params
     params.require(:product).permit(:name, :cost, :origin)
   end
-end
