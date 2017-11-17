@@ -22,6 +22,12 @@ def create
   end
 end
 
+def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to lists_path
+end
+
 private
   def product_params
     params.require(:product).permit(:name, :cost, :origin)
