@@ -3,6 +3,21 @@
 <h1>Product: <%= @product.name %></h1>
 <h1>Cost: <%= @product.cost %></h1>
 <h1>Place of Origin: <%= @product.origin %></h1>
-
+<h1>Reviews:</h1>
+<% if @product.reviews.any? %>
+  <ul>
+    <% @product.reviews.each do |review| %>
+      <li>
+        <%= review.description %> |
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>This product has no reivews.</p>
+<% end %>
 
 <p><%= link_to "Edit Product", edit_product_path(@product) %></p>
+<p><%= link_to "Delete Product", product_path(@product),
+                  :data => {:confirm => "Are you sure?",
+                  :method => "delete"}  %></p>
+<p><%= link_to "Return to products", products_path %></p>
