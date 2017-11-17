@@ -12,4 +12,6 @@ class Product < ActiveRecord::Base
     )}
 
     scope :most_recent, -> { order(created_at: :desc).limit(3) }
+
+    scope :local, -> { where(origin: 'USA')}
 end
