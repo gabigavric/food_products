@@ -18,3 +18,13 @@ describe '#most_reviewed' do
       expect(most_popular_product[0].name).to eq product.name
     end
 end
+
+describe '#most_recent' do
+   it "should return the 3 most recent products" do
+     4.times do
+       Product.create(name: "name", cost: 1, origin: "origin")
+     end
+     most_recent_products = Product.most_recent
+     expect(most_recent_products.length).to eq 3
+   end
+end
