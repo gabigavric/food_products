@@ -1,0 +1,13 @@
+<% content_for(:title, "Gabi's Foods") %>
+
+<h1>All Products</h1>
+
+<ul>
+  <% @products.each do |product| %>
+    <li><%= link_to product.name, product_path(product) %></li>
+  <% end %>
+</ul>
+
+<hr>
+
+<%= link_to "New Product", new_product_path %>
