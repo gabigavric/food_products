@@ -1,6 +1,6 @@
-<% content_for(:title, "Gabi's Foods") %>
-
-<h1>Products</h1>
+<div class="container">
+<% content_for(:title, "Products") %>
+<!-- <h1>Products</h1> -->
 <ul>
   <% @products.each do |product| %>
     <li><%= link_to product.name, product_path(product) %></li>
@@ -9,3 +9,4 @@
 
 <h4><%= link_to "Home", root_path %></h4>
 <h4><%= link_to "New Product", new_product_path %></h4>
+</div>
