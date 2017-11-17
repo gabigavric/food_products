@@ -10,4 +10,6 @@ class Product < ActiveRecord::Base
     .group("products.id")
     .order("reviews_count DESC")
     )}
+
+    scope :most_recent, -> { order(created_at: :desc).limit(3) }
 end
