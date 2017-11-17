@@ -4,6 +4,7 @@
 <h1>Cost: <%= @product.cost %></h1>
 <h1>Place of Origin: <%= @product.origin %></h1>
 <h1>Reviews:</h1>
+
 <% if @product.reviews.any? %>
   <ul>
     <% @product.reviews.each do |review| %>
