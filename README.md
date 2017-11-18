@@ -1,24 +1,20 @@
-# README
+Gabi's Store
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+About
+An application for posting and reviewing products.
 
-Things you may want to cover:
+Setup
+1) Clone this repository.
+2) Run the following commands in the root of the project to set up the application
+ a) bundle install
+ b) rails db:create
+ c) rails db:schema:load
+ d) rails s
+ e) rails db:seed
 
-* Ruby version
+ Known Bugs
+ Project not ready for rendering.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ License
+ MIT
+ Copyright (c) 2017 Gabrijela Gavric
