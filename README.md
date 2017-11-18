@@ -4,13 +4,16 @@ About
 An application for posting and reviewing products for "Gabi's Store".
 
 Setup
-1) Clone this repository.
+1) Clone this repository and move into it by doing
+  <ul><li>cd food_products</li></ul>
 2) Run the following commands in the root of the project to set up the application
- a) bundle install</br>
- b) rails db:create</br>
- c) rails db:schema:load</br>
- d) rails s</br>
- e) rails db:seed</br>
+  <ul>
+    <li>bundle install</li>
+    <li>rails db:create</li>
+    <li>rails db:schema:load</li>
+    <li>rails s</li>
+    <li>rails db:seed</li>
+  </ul>
 
  Known Bugs
  Project not ready for rendering.
