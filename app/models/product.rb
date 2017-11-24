@@ -9,7 +9,7 @@ class Product < ActiveRecord::Base
     .joins(:reviews)
     .group("products.id")
     .order("reviews_count DESC")
-    )}
+    ).limit(3)}
 
     scope :most_recent, -> { order(created_at: :desc).limit(3) }
 
