@@ -13,5 +13,12 @@ describe "add a product" do
     expect(page).to have_content 'Harry Potter'
   end
 
+  it 'gives an error when a form field is left blank' do
+    visit root_path
+    click_link 'All Books'
+    click_link 'Add New'
+    click_on 'Create Product'
+    expect(page).to have_content 'Please fix these errors:'
+  end
 
 end
