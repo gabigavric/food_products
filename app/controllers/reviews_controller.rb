@@ -1,8 +1,13 @@
 class ReviewsController < ApplicationController
+  def show
+    @review = Review.find(params[:id])
+    @product = @review.product
+  end
+
   def new
-   @product = Product.find(params[:product_id])
-   @review = @product.reviews.new
- end
+    @product = Product.find(params[:product_id])
+    @review = @product.reviews.new
+  end
 
  def create
    @product = Product.find(params[:product_id])
@@ -11,9 +16,10 @@ class ReviewsController < ApplicationController
      flash[:notice] = "Review successfully added!"
      redirect_to product_path(@review.product)
    else
+     flash[:notice] = "Your product was not added."
      render :new
    end
-end
+ end
 
  def edit
    @product = Product.find(params[:product_id])
@@ -21,11 +27,13 @@ end
  end
 
  def update
-   @review= Review.find(params[:id])
+   @review = @product.reviews.find(params[:id])
    @product = Product.find(params[:product_id])
    if @review.update(review_params)
-     redirect_to product_path(@review.product)
+     flash[:notice] = "Review successfully updated!"
+     redirect_to product_review_path(@product, @review)
    else
+     flash[:notice] = "Your product was not added."
      render :edit
    end
  end
@@ -40,5 +48,4 @@ end
    def review_params
      params.require(:review).permit(:author, :content_body, :rating)
    end
-
 end

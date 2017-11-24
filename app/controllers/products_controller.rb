@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @reviews = @product.reviews
   end
 
   def new
@@ -22,26 +23,26 @@ class ProductsController < ApplicationController
     end
   end
 
-  def destroy
-      @product = Product.find(params[:id])
-      @product.destroy
-      redirect_to lists_path
-  end
-
   def edit
-     @product = Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
-   def update
-     @product = Product.find(params[:id])
-     if @product.update(product_params)
-       flash[:success] = "Update was successful"
-       redirect_to products_path
-     else
-       flash[:danger] = "Was not able to update"
-       render :edit
+  def update
+    @product = Product.find(params[:id])
+      if @product.update(product_params)
+        flash[:success] = "Update was successful"
+        redirect_to products_path
+      else
+        flash[:danger] = "Was not able to update"
+        render :edit
      end
-   end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to products_path
+  end
 
   private
     def product_params
