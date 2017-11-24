@@ -1,26 +1,26 @@
 <div class="container">
-<% content_for(:title, "Product Information") %>
 
-<h1>Product: <%= @product.name %></h1>
-<h1>Cost: <%= @product.cost %></h1>
-<h1>Place of Origin: <%= @product.origin %></h1>
-<h1>Reviews:</h1>
+  <div class ="well">
+    <h4>Product: <%= @product.name %></h4>
+    <h4>Cost: <%= @product.cost %></h4>
+    <h4>Place of Origin: <%= @product.origin %></h4>
+    <h4>Reviews:</h4>
+    <ul>
+      <% if @reviews.any? %>
+        <% @reviews.each do |review| %>
+          <li> <%= link_to review.content_body , edit_product_review_path(@product, review) %></li>
+        <% end %>
+        <% else %>
+          <h5>No reviews</h5>
+        <% end %>
+    </ul>
+  </div>
 
-<ul>
-  <% if @reviews.any? %>
-    <% @reviews.each do |review| %>
-      <li> <%= link_to review.content_body , edit_product_review_path(@product, review) %></li>
-    <% end %>
-    <% else %>
-      <h2>This product does not have any reviews yet.</h2>
-    <% end %>
-</ul>
+  <h3><%= link_to "Add Review", new_product_review_path(@product) %></h3>
+  <h3><%= link_to "Edit Product", edit_product_path(@product) %></h3>
+  <h3><%= link_to "Delete Product", product_path(@product),
+                          :data => {:confirm => "Are you sure?",
+                                         :method => "delete"} %></h3>
 
-<h3><%= link_to "Add a review", new_product_review_path(@product) %></h3>
-<h3><%= link_to "Edit Product", edit_product_path(@product) %></h3>
-<h3><%= link_to "Delete Product", product_path(@product),
-                        :data => {:confirm => "Are you sure?",
-                                       :method => "delete"} %></h3>
-
-<h3><%= link_to "Return to products", products_path %></h3>
+  <h3><%= link_to "Return to products", products_path %></h3>
 </div>
