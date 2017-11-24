@@ -1,15 +1,22 @@
 <div class="container">
-  <h1>Gabi's Book Store</h1>
+  <div class="jumbotron">
+    <h1>Gabi's Book Store</h1>
 
-<h4>Most Reviewed Books:</h4>
-<% @most_reviewed.each do |review| %>
-<%= link_to review.name, product_path(review.id) %>
-<% end %>
+    <p>
+      We sell and review books, please add a review to our collection.
+    </p>
+  </div>
+  <div class="container">
+      <h3>Most Reviewed Books:</h3>
+      <% @most_reviewed.each do |review| %>
+      <%= link_to review.name, product_path(review.id) %>
+      <% end %>
 
-<h4>Recent Reviews:</h4>
-<% @most_recent.each do |product| %>
+      <h3>Recent Reviews:</h3>
+      <% @most_recent.each do |product| %>
+      <%= link_to product.name, product_path(product) %>
+      <% end %>
 
-<%= link_to product.name, product_path(product) %>
-<% end %>
-
+      <h3> <%= link_to "All Books", products_path%></h3>
+  </div>
 </div>
