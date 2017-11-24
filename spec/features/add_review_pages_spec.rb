@@ -11,4 +11,13 @@ describe 'adding a review' do
     click_on 'Create Review'
     expect(page).to have_content 'Reviews'
   end
+
+  it 'will give an error when a form field is left blank' do
+    product = Product.create(:name => 'Harry Potter', :cost => '15', :origin => 'England')
+    visit product_path(product)
+    click_on 'Add Review'
+    click_on 'Create Review'
+    expect(page).to have_content 'errors'
+  end
+
 end
