@@ -9,7 +9,7 @@
 <ul>
   <% if @reviews.any? %>
     <% @reviews.each do |review| %>
-      <li> <%= link_to review.author, product_review_path(@product, review) %></li>
+      <li> <%= link_to review.content_body , edit_product_review_path(@product, review) %></li>
     <% end %>
     <% else %>
       <h2>This product does not have any reviews yet.</h2>
@@ -17,6 +17,7 @@
 </ul>
 
 <h3><%= link_to "Add a review", new_product_review_path(@product) %></h3>
+<h3><%= link_to "Edit Product", edit_product_path(@product) %></h3>
 <h3><%= link_to "Delete Product", product_path(@product),
                         :data => {:confirm => "Are you sure?",
                                        :method => "delete"} %></h3>

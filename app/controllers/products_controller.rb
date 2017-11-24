@@ -17,8 +17,9 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     if @product.save
       flash[:notice] = "Product successfully added!"
-      redirect_to products_path(@product)
+      redirect_to product_path
     else
+      flash[:notice] = "Your product was not added."
       render :new
     end
   end
@@ -31,7 +32,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
       if @product.update(product_params)
         flash[:success] = "Update was successful"
-        redirect_to products_path
+        redirect_to product_path(@product)
       else
         flash[:danger] = "Was not able to update"
         render :edit

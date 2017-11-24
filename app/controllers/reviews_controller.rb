@@ -27,11 +27,11 @@ class ReviewsController < ApplicationController
  end
 
  def update
-   @review = @product.reviews.find(params[:id])
    @product = Product.find(params[:product_id])
+   @review = @product.reviews.find(params[:id])
    if @review.update(review_params)
      flash[:notice] = "Review successfully updated!"
-     redirect_to product_review_path(@product, @review)
+     redirect_to product_path(@product)
    else
      flash[:notice] = "Your product was not added."
      render :edit
@@ -48,4 +48,4 @@ class ReviewsController < ApplicationController
    def review_params
      params.require(:review).permit(:author, :content_body, :rating)
    end
-end
+ end
