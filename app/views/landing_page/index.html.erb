@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Gabi's Book Store</h1>
+
+<h4>Most Reviewed Books:</h4>
+<% @most_reviewed.each do |review| %>
+<%= link_to review.name, product_path(review.id) %>
+<% end %>
+
+<h4>Recent Reviews:</h4>
+<% @most_recent.each do |product| %>
+
+<%= link_to product.name, product_path(product) %>
+<% end %>
+
+</div>
