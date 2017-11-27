@@ -11,8 +11,8 @@ Setup
     <li>bundle install</li>
     <li>rails db:create</li>
     <li>rails db:schema:load</li>
-    <li>rails s</li>
     <li>rails db:seed</li>
+    <li>rails s</li>
   </ul>
 
  Known Bugs
