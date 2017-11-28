@@ -1,7 +1,7 @@
-Gabi's Store
+Gabi's Book Store
 
 About
-An application for posting and reviewing products for "Gabi's Store".
+An application for posting and reviewing books.
 
 Setup
 1) Clone this repository and move into it by doing
