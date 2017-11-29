@@ -2,9 +2,10 @@ Product.destroy_all
 Review.destroy_all
 
 50.times do
-  Product.create!( name: Faker::Commerce.name,
+  Product.create!( name: Faker::Book.title,
                    cost: Faker::Commerce.price,
-                   origin: Faker::Address.country )
+                   origin: Faker::Address.country
+                   )
 end
 p "Created #{Product.count} products"
 250.times do
