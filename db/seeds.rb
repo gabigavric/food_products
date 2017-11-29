@@ -11,7 +11,7 @@ p "Created #{Product.count} products"
   Review.create!( author: Faker::HarryPotter.character,
                   content_body: Faker::HarryPotter.quote,
                   rating: Faker::Number.between(1,5),
-                  product_id: Faker::Number.between(Product.first.id, Product.last.id))
+                  product_id: Faker::Number.between(Product.first.id, Product.last.id)
                   )
 end
 p "Created #{Review.count} reviews"
